@@ -21,6 +21,7 @@
     }
     .home-container{
         overflow:hidden;
+
     }
     .home-head{
         width: 100%;
@@ -92,6 +93,35 @@
         left: -236px;
         z-index: 998;
     }
+    .avatar{
+        width:120px;    
+        height:120px;
+        border-radius: 50%;
+        margin:300px auto 0;
+        overflow:hidden;
+    }
+    .avatar img{
+        width:100%;
+        cursor:pointer;
+    }
+    .hyperlink{
+        margin:50px auto;
+        width:360px;
+    }
+    .hyperlink span{
+        display:inline-block;
+        margin:0 10px;
+        border-radius: 50%;
+        background:white;
+        width:36px;
+        height:36px;
+        cursor:pointer;
+    }
+    .hyperlink span img{
+        width:30px;
+        margin:3px;
+        cursor:pointer;
+    }
   </style>
   <body style="height:2000px;">
     <div class="home-container">
@@ -104,13 +134,22 @@
                     <li><a href="/">首页</a></li>
                     <li><a href="/categories/">分类</a></li>
                     <li><a href="/tags/">标签</a></li>
-                    <li><a href="/tags/">标签</a></li>
+                    <li><a href="/tags/">关于我</a></li>
                     <li><a href="/tags/">标签</a></li>
                     <li><a href="/tags/">标签</a></li>
                 </ul>
             </div>
         </div>
-        <figure class="centerbg">
+        <figure class="centerbg" style="padding-top:1px;">
+            <div class="avatar"><img src="../images/miku.jpg"></div>
+            <div class="hyperlink">
+                <span><a href="http://www.acfun.cn/u/849593.aspx#page=1" title="AcFun-认真你就输啦 (・ω・)ノ- ( ゜- ゜)つロ" target="_blank" rel="external"><img src="images/acfun.png"></a></span>
+                <span><a href="http://space.bilibili.com/6578129/#!/index" title="哔哩哔哩 (゜-゜)つロ 干杯~-bilibili" target="_blank" rel="external"><img src="images/bilibili.png"></a></span>
+                <span><a href="http://steamcommunity.com/id/wisper927" title="万恶的G胖" target="_blank" rel="external"><img src="images/steam.png"></a></span>
+                <span><a href="" title="油管"><img src="images/youtube.png"></a></span>
+                <span><a href="" title="Build body better, together."><img src="images/github.png"></a></span>
+                <span><a href="" title="约炮"><img src="images/weixin.png"></a></span>
+            </div>
             <div id="banner_bolang_bg_1"></div>
             <div id="banner_bolang_bg_2" class=""></div>
         </figure>
