@@ -94,7 +94,7 @@
 <meta property="og:url" content="//WispXy/2017/01/14/常用Git命令/index.html">
 <meta property="og:site_name" content="Wisper">
 <meta property="og:description" content="一、全局配置 Git 的设置文件为 .gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。1234567$ git config --list                                   //显示当前的Git配置$ git config -e [--global]                            //编辑Git配置文件">
-<meta property="og:updated_time" content="2017-04-21T06:22:46.255Z">
+<meta property="og:updated_time" content="2017-04-21T06:24:03.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用Git命令">
 <meta name="twitter:description" content="一、全局配置 Git 的设置文件为 .gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。1234567$ git config --list                                   //显示当前的Git配置$ git config -e [--global]                            //编辑Git配置文件">
@@ -473,6 +473,7 @@
         <h2 id="一、全局配置"><a href="#一、全局配置" class="headerlink" title="一、全局配置"></a>一、全局配置</h2><blockquote>
 <p>Git 的设置文件为 .gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git config --list                                   //显示当前的Git配置</div><div class="line"></div><div class="line">$ git config <span class="_">-e</span> [--global]                            //编辑Git配置文件</div><div class="line"></div><div class="line">$ git config [--global] user.name <span class="string">"[name]"</span>            //设置提交代码时的用户名字</div><div class="line"></div><div class="line">$ git config [--global] user.email <span class="string">"[email address]"</span>  //设置提交代码时的用户地址</div></pre></td></tr></table></figure></p>
 </blockquote>
+ <a id="more"></a>
 <h2 id="二、创建-SSH-Key"><a href="#二、创建-SSH-Key" class="headerlink" title="二、创建 SSH Key"></a>二、创建 SSH Key</h2><blockquote>
 <p>由于本地的 Git 仓库和 Github 仓库之间的传输是通过 SSH 加密。在用户的主目录下，看看有没有 .ssh 目录，如果有，再看看目录下有没有 id_rsa 和 id_rsa.pub 文件，id_rsa.pub文件的内容就是 Key， 如果已经有了，可直接跳到下一步。没有则：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"xxxxxx@xx.com"</span></div></pre></td></tr></table></figure></p>
 </blockquote>
