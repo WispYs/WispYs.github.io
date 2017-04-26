@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ES6," />
+  <meta name="keywords" content="Vue," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="1. 数组的解构赋值 ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。  基本用法 ES6 可以从数组中提取值，按照对应位置，对变量赋值。1let [a, b, c] = [1, 2, 3];">
-<meta name="keywords" content="ES6">
+<meta name="description" content="插值1.插入文本 双括号插值法“Mustache” 语法（双大括号）1&amp;lt;div&amp;gt;&amp;#123;&amp;#123; msg &amp;#125;&amp;#125;&amp;lt;/div&amp;gt; v-once 指令能执行一次性地插值，当数据改变时，插值处的内容不会更新1&amp;lt;span v-once&amp;gt;This will never change: &amp;#123;&amp;#123; msg &amp;#125;&amp;#125;&amp;lt">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ECMAScript 6 学习笔记（二）：变量的解构赋值">
-<meta property="og:url" content="//WispXy/2016/12/25/ECMAScript-6-学习笔记（二）：变量的解构赋值/index.html">
+<meta property="og:title" content="Vue-js-文档学习记录（二）- 数据绑定">
+<meta property="og:url" content="//WispXy/2017/01/17/Vue-js-文档学习记录（二）- 数据绑定/index.html">
 <meta property="og:site_name" content="Wisper">
-<meta property="og:description" content="1. 数组的解构赋值 ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。  基本用法 ES6 可以从数组中提取值，按照对应位置，对变量赋值。1let [a, b, c] = [1, 2, 3];">
-<meta property="og:updated_time" content="2017-04-19T06:44:02.452Z">
+<meta property="og:description" content="插值1.插入文本 双括号插值法“Mustache” 语法（双大括号）1&amp;lt;div&amp;gt;&amp;#123;&amp;#123; msg &amp;#125;&amp;#125;&amp;lt;/div&amp;gt; v-once 指令能执行一次性地插值，当数据改变时，插值处的内容不会更新1&amp;lt;span v-once&amp;gt;This will never change: &amp;#123;&amp;#123; msg &amp;#125;&amp;#125;&amp;lt">
+<meta property="og:updated_time" content="2017-04-26T05:57:29.404Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ECMAScript 6 学习笔记（二）：变量的解构赋值">
-<meta name="twitter:description" content="1. 数组的解构赋值 ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。  基本用法 ES6 可以从数组中提取值，按照对应位置，对变量赋值。1let [a, b, c] = [1, 2, 3];">
+<meta name="twitter:title" content="Vue-js-文档学习记录（二）- 数据绑定">
+<meta name="twitter:description" content="插值1.插入文本 双括号插值法“Mustache” 语法（双大括号）1&amp;lt;div&amp;gt;&amp;#123;&amp;#123; msg &amp;#125;&amp;#125;&amp;lt;/div&amp;gt; v-once 指令能执行一次性地插值，当数据改变时，插值处的内容不会更新1&amp;lt;span v-once&amp;gt;This will never change: &amp;#123;&amp;#123; msg &amp;#125;&amp;#125;&amp;lt">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="//WispXy/2016/12/25/ECMAScript-6-学习笔记（二）：变量的解构赋值/"/>
+  <link rel="canonical" href="//WispXy/2017/01/17/Vue-js-文档学习记录（二）- 数据绑定/"/>
 
 
 
 
 
-  <title> ECMAScript 6 学习笔记（二）：变量的解构赋值 | Wisper </title>
+  <title> Vue-js-文档学习记录（二）- 数据绑定 | Wisper </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -325,7 +325,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="//WispXy/2016/12/25/ECMAScript-6-学习笔记（二）：变量的解构赋值/">
+    <link itemprop="mainEntityOfPage" href="//WispXy/2017/01/17/Vue-js-文档学习记录（二）- 数据绑定/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wisper">
@@ -346,7 +346,7 @@
             
             
               
-                ECMAScript 6 学习笔记（二）：变量的解构赋值
+                Vue-js-文档学习记录（二）- 数据绑定
               
             
           </h1>
@@ -361,8 +361,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-25T17:15:27+08:00">
-                2016-12-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-17T17:12:56+08:00">
+                2017-01-17
               </time>
             
 
@@ -402,7 +402,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2016/12/25/ECMAScript-6-学习笔记（二）：变量的解构赋值/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/01/17/Vue-js-文档学习记录（二）- 数据绑定/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -411,7 +411,7 @@
 
           
           
-             <span id="/2016/12/25/ECMAScript-6-学习笔记（二）：变量的解构赋值/" class="leancloud_visitors" data-flag-title="ECMAScript 6 学习笔记（二）：变量的解构赋值">
+             <span id="/2017/01/17/Vue-js-文档学习记录（二）- 数据绑定/" class="leancloud_visitors" data-flag-title="Vue-js-文档学习记录（二）- 数据绑定">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -435,7 +435,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  486
+                  676
                 </span>
               
 
@@ -451,7 +451,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -470,22 +470,31 @@
       
 
       
-        <h2 id="1-数组的解构赋值"><a href="#1-数组的解构赋值" class="headerlink" title=" 1. 数组的解构赋值"></a> <strong>1. 数组的解构赋值</strong></h2><blockquote>
-<p>ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。</p>
-</blockquote>
-<p><strong>基本用法</strong></p>
-<p>ES6 可以从数组中提取值，按照对应位置，对变量赋值。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> [a, b, c] = [1, 2, 3];</div></pre></td></tr></table></figure></p>
+        <h2 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h2><p><strong>1.插入文本</strong></p>
+<p>双括号插值法“Mustache” 语法（双大括号）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>v-once</strong> 指令能执行一次性地插值，当数据改变时，插值处的内容不会更新<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;span v-once&gt;This will never change: &#123;&#123; msg &#125;&#125;&lt;/span&gt;</div></pre></td></tr></table></figure></p>
  <a id="more"></a>
-<p>本质上，这种写法属于“模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值。如果解构不成功，变量的值就等于undefined。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> [foo, [[bar], baz]] = [1, [[2], 3]];   // foo = 1   bar = 2   baz = 3</div><div class="line"></div><div class="line"><span class="built_in">let</span> [ , , third] = [<span class="string">"foo"</span>, <span class="string">"bar"</span>, <span class="string">"baz"</span>];  // third = <span class="string">"baz"</span></div><div class="line"></div><div class="line"><span class="built_in">let</span> [x, , y] = [1, 2, 3];  // x = 1   y = 3</div></pre></td></tr></table></figure></p>
-<p><strong>默认值</strong></p>
-<p>解构赋值允许指定默认值。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> [foo = <span class="literal">true</span>] = [];</div><div class="line">foo // <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="built_in">let</span> [x, y = <span class="string">'b'</span>] = [<span class="string">'a'</span>]; // x=<span class="string">'a'</span>, y=<span class="string">'b'</span></div><div class="line"><span class="built_in">let</span> [x, y = <span class="string">'b'</span>] = [<span class="string">'a'</span>, undefined]; // x=<span class="string">'a'</span>, y=<span class="string">'b'</span></div></pre></td></tr></table></figure></p>
-<h2 id="2-对象的解构赋值"><a href="#2-对象的解构赋值" class="headerlink" title=" 2. 对象的解构赋值"></a> <strong>2. 对象的解构赋值</strong></h2><p>对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> &#123; bar, foo &#125; = &#123; foo: <span class="string">"aaa"</span>, bar: <span class="string">"bbb"</span> &#125;;</div><div class="line">foo // <span class="string">"aaa"</span></div><div class="line">bar // <span class="string">"bbb"</span></div><div class="line"></div><div class="line"><span class="built_in">let</span> &#123; baz &#125; = &#123; foo: <span class="string">"aaa"</span>, bar: <span class="string">"bbb"</span> &#125;;</div><div class="line">baz // undefined</div></pre></td></tr></table></figure></p>
-<h2 id="3-字符串的解构赋值"><a href="#3-字符串的解构赋值" class="headerlink" title=" 3. 字符串的解构赋值"></a> <strong>3. 字符串的解构赋值</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const [a, b, c, d, e] = <span class="string">'hello'</span>;</div><div class="line">a // <span class="string">"h"</span></div><div class="line">b // <span class="string">"e"</span></div><div class="line">c // <span class="string">"l"</span></div><div class="line">d // <span class="string">"l"</span></div><div class="line">e // <span class="string">"o"</span></div></pre></td></tr></table></figure>
-<p>类似数组的对象都有一个length属性，因此还可以对这个属性解构赋值。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> &#123;length : len&#125; = <span class="string">'hello'</span>;</div><div class="line">len // 5</div></pre></td></tr></table></figure></p>
-<h2 id="4-用途"><a href="#4-用途" class="headerlink" title=" 4. 用途"></a> <strong>4. 用途</strong></h2><p> <strong>交换变量的值</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">let</span> x = 1;</div><div class="line"><span class="built_in">let</span> y = 2;</div><div class="line">[x, y] = [y, x];</div></pre></td></tr></table></figure></p>
-<p> <strong>从函数返回多个值</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 返回一个数组</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">example</span></span>() &#123;</div><div class="line">  <span class="built_in">return</span> [1, 2, 3];</div><div class="line">&#125;</div><div class="line"><span class="built_in">let</span> [a, b, c] = example();</div><div class="line"></div><div class="line">// 返回一个对象</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">example</span></span>() &#123;</div><div class="line">  <span class="built_in">return</span> &#123;</div><div class="line">    foo: 1,</div><div class="line">    bar: 2</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"><span class="built_in">let</span> &#123; foo, bar &#125; = example();</div></pre></td></tr></table></figure></p>
-<p><strong>函数参数的定义</strong></p>
-<p>解构赋值可以方便地将一组参数与变量名对应起来。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 参数是一组有次序的值</div><div class="line"><span class="keyword">function</span> f([x, y, z]) &#123; ... &#125;</div><div class="line">f([1, 2, 3]);</div><div class="line"></div><div class="line">// 参数是一组无次序的值</div><div class="line"><span class="keyword">function</span> f(&#123;x, y, z&#125;) &#123; ... &#125;</div><div class="line">f(&#123;z: 3, y: 2, x: 1&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>2.插入纯 HTML</strong></p>
+<p><strong>v-html</strong> 指令能输出真正的 HTML<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-html=<span class="string">"vHtml"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>3.绑定属性</strong></p>
+<p><strong>v-bind</strong> 指令绑定元素属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-bind:id=<span class="string">"uId"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>4.使用 JavaScript 表达式</strong></p>
+<p>可以使用 JavaScript 表达式数据绑定<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; number + 1 &#125;&#125;</div><div class="line">&#123;&#123; ok ? <span class="string">'YES'</span> : <span class="string">'NO'</span> &#125;&#125;</div><div class="line">&#123;&#123; message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>) &#125;&#125;</div><div class="line">&lt;div v-bind:id=<span class="string">"'list-' + id"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p><strong>1.参数</strong></p>
+<p>一些指令能接受一个“参数”，在指令后以冒号指明。例如， v-bind 指令被用来响应地更新 HTML 属性：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;a v-bind:href=<span class="string">"url"</span>&gt;&lt;/a&gt;       //href 就是v-bind 的参数，给元素绑定href 属性</div><div class="line">&lt;a v-on:click=<span class="string">"doSomething"</span>&gt;    //click 也是参数</div></pre></td></tr></table></figure></p>
+<p><strong>2.过滤器</strong></p>
+<p>Vue.js 允许你自定义过滤器，可被用作一些常见的文本格式化。过滤器可以用在两个地方：mustache 插值和 v-bind 表达式。过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符指示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">以下实现绑定的数据首字母大写</div><div class="line"></div><div class="line">&#123;&#123; message | capitalize &#125;&#125;</div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  // ...</div><div class="line">  filters: &#123;</div><div class="line">    capitalize: <span class="keyword">function</span> (value) &#123;</div><div class="line">      <span class="keyword">if</span> (!value) <span class="built_in">return</span> <span class="string">''</span></div><div class="line">      value = value.toString()</div><div class="line">      <span class="built_in">return</span> value.charAt(0).toUpperCase() + value.slice(1)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><strong>3.缩写</strong></p>
+<p><strong>v-bind</strong> 缩写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 完整语法 --&gt;</div><div class="line">&lt;a v-bind:href=<span class="string">"url"</span>&gt;&lt;/a&gt;</div><div class="line">&lt;!-- 缩写 --&gt;</div><div class="line">&lt;a :href=<span class="string">"url"</span>&gt;&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>v-on</strong> 缩写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 完整语法 --&gt;</div><div class="line">&lt;a v-on:click=<span class="string">"doSomething"</span>&gt;&lt;/a&gt;</div><div class="line">&lt;!-- 缩写 --&gt;</div><div class="line">&lt;a @click=<span class="string">"doSomething"</span>&gt;&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="Class-与-Style-绑定"><a href="#Class-与-Style-绑定" class="headerlink" title="Class 与 Style 绑定"></a>Class 与 Style 绑定</h2><h3 id="绑定Class"><a href="#绑定Class" class="headerlink" title="绑定Class"></a>绑定Class</h3><p><strong>常用绑定</strong></p>
+<p>v-bind :class 可简写 :class，并且和原有的 class 不冲突<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div :class=<span class="string">"className"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>对象绑定</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div :class=<span class="string">"&#123; active: isActive &#125;"</span>&gt;&lt;/div&gt;         //isActive为真值 绑定active</div></pre></td></tr></table></figure></p>
+<p><strong>三目运算符</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div :class=<span class="string">" followed ? 'btn-success' : 'btn-failure' "</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="绑定Style"><a href="#绑定Style" class="headerlink" title="绑定Style"></a>绑定Style</h3><p>v-bind :style 的对象语法十分直观——看着非常像 CSS ，其实它是一个 JavaScript 对象。 CSS 属性名可以用驼峰式或短横分隔命名：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div v-bind:style=<span class="string">"&#123; color: activeColor, fontSize: fontSize + 'px' &#125;"</span>&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">data: &#123;</div><div class="line">  activeColor: <span class="string">'red'</span>,</div><div class="line">  fontSize: 30</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>直接绑定到一个样式对象通常更好，让模板更清晰：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div v-bind:style=<span class="string">"styleObject"</span>&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">data: &#123;</div><div class="line">  styleObject: &#123;</div><div class="line">    color: <span class="string">'red'</span>,</div><div class="line">    fontSize: <span class="string">'13px'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h2><p>computed 函数处理复杂逻辑的计算，计算属性默认只有 getter ，不过在需要时你也可以提供一个 setter<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var vm = new Vue(&#123;</div><div class="line">  data: &#123; a: 1 &#125;,</div><div class="line">  computed: &#123;</div><div class="line">    // 仅读取，值只须为函数</div><div class="line">    aDouble: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">      <span class="built_in">return</span> this.a * 2</div><div class="line">    &#125;,</div><div class="line">    // 读取和设置</div><div class="line">    aPlus: &#123;</div><div class="line">      get: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">        <span class="built_in">return</span> this.a + 1</div><div class="line">      &#125;,</div><div class="line">      <span class="built_in">set</span>: <span class="keyword">function</span> (v) &#123;</div><div class="line">        this.a = v - 1</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.aPlus   // -&gt; 2</div><div class="line">vm.aPlus = 3</div><div class="line">vm.a       // -&gt; 2</div><div class="line">vm.aDouble // -&gt; 4</div></pre></td></tr></table></figure></p>
+<h2 id="监听数据Watch"><a href="#监听数据Watch" class="headerlink" title="监听数据Watch"></a>监听数据Watch</h2><p>Vue 提供一个通用的方法通过, watch 选项来响应数据的变化。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">watch: &#123;</div><div class="line">    Amount: <span class="keyword">function</span> (val, oldVal) &#123;</div><div class="line">      this.getChange()          // 如果 Amount 发生改变，这个函数就会运行</div><div class="line">    &#125;</div><div class="line">  &#125;,</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -515,7 +524,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ES6/" rel="tag"># ES6</a>
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -528,18 +537,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/25/ECMAScript-6-学习笔记（三）：字符串、正则和数值的扩展/" rel="next" title="ECMAScript 6 学习笔记（三）：字符串、正则和数值的扩展">
-                <i class="fa fa-chevron-left"></i> ECMAScript 6 学习笔记（三）：字符串、正则和数值的扩展
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/24/ECMAScript-6-学习笔记（一）：let-const-命令/" rel="prev" title="ECMAScript 6 学习笔记（一）：let / const 命令">
-                ECMAScript 6 学习笔记（一）：let / const 命令 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/16/Vue-js-文档学习记录（一）- 安装和基础/" rel="prev" title="Vue.js 文档学习记录（一）- 安装和基础">
+                Vue.js 文档学习记录（一）- 安装和基础 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -708,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数组的解构赋值"><span class="nav-number">1.</span> <span class="nav-text"> 1. 数组的解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-对象的解构赋值"><span class="nav-number">2.</span> <span class="nav-text"> 2. 对象的解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-字符串的解构赋值"><span class="nav-number">3.</span> <span class="nav-text"> 3. 字符串的解构赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-用途"><span class="nav-number">4.</span> <span class="nav-text"> 4. 用途</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#插值"><span class="nav-number">1.</span> <span class="nav-text">插值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令"><span class="nav-number">2.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-与-Style-绑定"><span class="nav-number">3.</span> <span class="nav-text">Class 与 Style 绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定Class"><span class="nav-number">3.1.</span> <span class="nav-text">绑定Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定Style"><span class="nav-number">3.2.</span> <span class="nav-text">绑定Style</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算属性"><span class="nav-number">4.</span> <span class="nav-text">计算属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监听数据Watch"><span class="nav-number">5.</span> <span class="nav-text">监听数据Watch</span></a></li></ol></div>
             
 
           </div>
