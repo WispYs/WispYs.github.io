@@ -1692,7 +1692,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffd47d;
+  background: #ffe325;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2862,4 +2862,7 @@ pre .javascript .function {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  background: url("https://oliwa.cc/wp-content/uploads/2016/12/galss.png") no-repeat top center #1f160f;
 }
