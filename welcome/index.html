@@ -19,6 +19,9 @@
         -webkit-tap-highlight-color:transparent;
         -webkit-font-smoothing: antialiased;
     }
+    img{
+        border:0;
+    }
     .home-container{
         overflow:hidden;
 
@@ -140,7 +143,7 @@
             </div>
         </div>
         <figure class="centerbg" style="padding-top:1px;">
-            <div class="avatar"><img src="../images/miku.jpg"></div>
+            <div class="avatar"><img class="lazy" src="../images/miku.jpg"></div>
             <div class="hyperlink">
                 <span><a href="http://www.acfun.cn/u/849593.aspx#page=1" title="AcFun-认真你就输啦 (・ω・)ノ- ( ゜- ゜)つロ" target="_blank" rel="external"><img src="images/acfun.png"></a></span>
                 <span><a href="http://space.bilibili.com/6578129/#!/index" title="哔哩哔哩 (゜-゜)つロ 干杯~-bilibili" target="_blank" rel="external"><img src="images/bilibili.png"></a></span>
@@ -156,8 +159,10 @@
     <!-- built files will be auto injected -->
   </body>
   <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.js"></script>
   <script>
     $(function () {
+		$(".lazy").lazyload({effect: "slideDown"});
         //底部波浪动画
         function waveloop1() {
             $("#banner_bolang_bg_1").css({"left": "-236px"}).animate({"left": "-1233px"}, 25000, 'linear', waveloop1);
