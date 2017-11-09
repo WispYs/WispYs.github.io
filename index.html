@@ -89,7 +89,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/04/25/Android 姬与 CSS3 动画不得不说的故事/" data-id="cj9sa5jaj0000awqiqg2n8zxt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/04/25/Android 姬与 CSS3 动画不得不说的故事/" data-id="cj9sa7q4000009sqiyrr2lp1c" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -97,53 +97,11 @@
       
         <p>最近公司做一个H5抽奖活动，要求将中奖名单（？？不存在的）显示在页面中，效果类似直播平台的弹幕一样飘过 。心想简单啊，直接定位用animate动画就解决了，然而…</p>
 <p><img src="http://zkres1.myzaker.com/201711/5a007bde7f52e974550000e2_640.jpg" alt="此处输入图片的描述"></p>
-<p>测试的时候发现部分安卓机型出现卡卡卡卡顿的现象，实际动画效果引起强烈不适，Android姬怎么老是出问题呀(╯‵□′)╯︵┻━┻ 。</p>
-<p>经过一番折腾，终于找见了解决卡顿的方法</p>
-<p>方案： </p>
-<ol>
-<li><p>尽量使用 transform 当成动画处理，避免使用 height,width,margin,padding 等；</p>
-</li>
-<li><p>要求较高时，可以开启浏览器开启GPU硬件加速<br> webkit-transform: translate3d( 0,0,0 );<br> -moz-transform: translate3d( 0,0,0 );<br> -ms-transform: translate3d( 0,0,0 );<br> -o-transform: translate3d( 0,0,0 );<br> transform: translate3d( 0,0,0 );</p>
-</li>
-</ol>
-<p>那到底是为什么Android姬会出现卡顿的现象呢？为什么亲儿子IOS没有受到遗传呢？这后面究竟是道德的伦桑还是人性的扭曲？欢迎收看《 走进科学 - Android 下的C3动画》。</p>
-<h2 id="令人吃鲸的真相"><a href="#令人吃鲸的真相" class="headerlink" title="令人吃鲸的真相"></a>令人吃鲸的真相</h2><p><strong>从浏览器的引擎工作原理方面</strong></p>
-<p><a href="http://blog.csdn.net/leer168/article/details/25917093" target="_blank" rel="external">深入浏览器理解 CSS animations 和 transitions 的性能问题</a> 一文中提到，现代的浏览器通常会有两个重要的执行线程，这2个线程协同工作来渲染一个网页：主线程和合成线程 。    </p>
-<p>一般情况下，主线程负责：</p>
-<ul>
-<li>运行 JavaScript</li>
-<li>计算 HTML 元素的 CSS 样式。</li>
-<li>页面的布局</li>
-<li>将元素绘制到一个或多个位图中</li>
-<li>将这些位图交给合成线程</li>
-</ul>
-<p>相应地，合成线程负责：</p>
-<ul>
-<li>通过 GPU 将位图绘制到屏幕上</li>
-<li>通知主线程更新页面中可见或即将变成可见的部分的位图</li>
-<li>计算出页面中哪部分是可见的</li>
-<li>计算出当你在滚动页面时哪部分是即将变成可见的</li>
-<li>当你滚动页面时将相应位置的元素移动到可视区域</li>
-</ul>
-<p>使用 height,width,margin,padding,top,left 占用主线程比较耗时。而使用 transform 浏览器只需要一次生成这个元素的位图，并在动画开始的时候将它提交给GPU去处理 。</p>
-<p><strong>通过DevTools从文档对象模型到像素级别的观察</strong></p>
-<p>下图是 Chrome 浏览器中动画的 timeline，瀑布流越高，浏览器为了计算每个像素，就做的越多。</p>
-<p><img src="http://oodni3sgx.bkt.clouddn.com/Chrome%20DevTools%20-transform.png" alt="timeline"></p>
-<p>由此也能验证以上得出的结论 。</p>
-<p>文章 <a href="https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/" target="_blank" rel="external">High Performance Animations</a> 提到：</p>
-<blockquote>
-<p>We’re going to cut straight to the chase. Modern browsers can animate four things really cheaply: position, scale, rotation and opacity. If you animate anything else, it’s at your own risk, and the chances are you’re not going to hit a silky smooth 60fps. </p>
-</blockquote>
-<p>现代浏览器在完成 position，scale，rotation，opacity 四种属性的动画时，消耗成本较低 。</p>
-<h2 id="捉急的项目证实"><a href="#捉急的项目证实" class="headerlink" title="捉急的项目证实"></a>捉急的项目证实</h2><p>为了验证以上的理论，我将两种写法做了比对 。</p>
-<p>下图是我之前的方法，使用定位改变 right 的值使元素从右到左移动，但是可以看到这种写法的 FPS 平均只有    30 。我们知道每秒 60 帧是最适合人眼交互的，FPS 小于 60 人眼能明显感觉的到，这就是为什么卡顿的原因 。</p>
-<p><img src="http://oodni3sgx.bkt.clouddn.com/c3-animate.png" alt="c3-animate"></p>
-<p>下图使用了 transform 方法改变 translateX 的值，FPS 明显高过 60 帧 ，惊不惊喜？ 意不意外？</p>
-<p><img src="http://oodni3sgx.bkt.clouddn.com/c3-transform.png" alt="c3-transform"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为了做到兼容性好，流畅度高的动画，一定要对自己的代码做好优化，尽可能将动画元素absolute化以避免影响文档树，造成大面积重新计算layout 。动画处理使用浏览器渲染快的 transform 属性，尽量避免改变 height,width,margin,padding 等，要求较高时还可以开启浏览器 GPU 硬件加速（ transform: translate3d( 0,0,0 ) ） 。</p>
-<p>PS：</p>
-<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1510229996717&amp;di=96af5f9bb1156536daf8887d337ec958&amp;imgtype=jpg&amp;src=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D1547894033%2C2527407309%26fm%3D214%26gp%3D0.jpg" alt="暗中观察"></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2017/04/25/Android 姬与 CSS3 动画不得不说的故事/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
       
     </div><!-- .entry-content -->
 
@@ -187,7 +145,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/04/19/一劳永逸的搞定-flex-布局（转）/" data-id="cj9sa5jbw000qawqi5zm4q0y7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/04/19/一劳永逸的搞定-flex-布局（转）/" data-id="cj9sa7q54000p9sqihi4wnva1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -242,7 +200,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/01/20/Vue-js-文档学习记录（三）-条件、列表和事件/" data-id="cj9sa5jbh000fawqi9zdz1e6y" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/01/20/Vue-js-文档学习记录（三）-条件、列表和事件/" data-id="cj9sa7q4s000f9sqi6z6s0kcs" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -298,7 +256,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/01/17/Vue-js-文档学习记录（二）- 数据绑定/" data-id="cj9sa5jbp000mawqis9gr4jnm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/01/17/Vue-js-文档学习记录（二）- 数据绑定/" data-id="cj9sa7q4u000j9sqi03dnm2bu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -355,7 +313,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/01/16/Vue-js-文档学习记录（一）- 安装和基础/" data-id="cj9sa5jbd000dawqii43z817t" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/01/16/Vue-js-文档学习记录（一）- 安装和基础/" data-id="cj9sa7q4q000d9sqid0cvqweg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -416,7 +374,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/01/14/常用Git命令/" data-id="cj9sa5jbx000tawqiv5k06yon" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/01/14/常用Git命令/" data-id="cj9sa7q58000t9sqinohk4pq7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -473,7 +431,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2016/12/25/ECMAScript-6-学习笔记（三）：字符串、正则和数值的扩展/" data-id="cj9sa5jb50008awqiqf4agvlh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2016/12/25/ECMAScript-6-学习笔记（三）：字符串、正则和数值的扩展/" data-id="cj9sa7q4h00089sqicc5vhpn7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -532,7 +490,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2016/12/25/ECMAScript-6-学习笔记（二）：变量的解构赋值/" data-id="cj9sa5jb90009awqi09942fag" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2016/12/25/ECMAScript-6-学习笔记（二）：变量的解构赋值/" data-id="cj9sa7q4n00099sqijjtp28a3" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -591,7 +549,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2016/12/24/ECMAScript-6-学习笔记（一）：let-const-命令/" data-id="cj9sa5jb40006awqiin4bu39i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2016/12/24/ECMAScript-6-学习笔记（一）：let-const-命令/" data-id="cj9sa7q4600029sqi13qy3kke" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -650,7 +608,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2016/12/14/Cmd Markdown 编辑阅读器/" data-id="cj9sa5jaq0002awqi9lh8cze4" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2016/12/14/Cmd Markdown 编辑阅读器/" data-id="cj9sa7q4c00069sqiesdvlq0t" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
