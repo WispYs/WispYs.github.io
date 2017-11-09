@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="拿梦想做赌注，我怎么舍得输" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Android 姬与 CSS3 动画不得不说的故事 | Wisper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近公司做一个H5抽奖活动，要求将中奖名单（？？不存在的）显示在页面中，效果类似直播平台的弹幕一样飘过 。心想简单啊，直接定位用animate动画就解决了，然而…  测试的时候发现部分安卓机型出现卡卡卡卡顿的现象，实际动画效果引起强烈不适，Android姬怎么老是出问题呀(╯‵□′)╯︵┻━┻ 。 经过一番折腾，终于找见了解决卡顿的方法 方案：   尽量使用 transform 当成动画处理，避免">
+<meta name="keywords" content="工作积累">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 姬与 CSS3 动画不得不说的故事">
+<meta property="og:url" content="//WispXy/2017/04/25/Android 姬与 CSS3 动画不得不说的故事/index.html">
+<meta property="og:site_name" content="Wisper">
+<meta property="og:description" content="最近公司做一个H5抽奖活动，要求将中奖名单（？？不存在的）显示在页面中，效果类似直播平台的弹幕一样飘过 。心想简单啊，直接定位用animate动画就解决了，然而…  测试的时候发现部分安卓机型出现卡卡卡卡顿的现象，实际动画效果引起强烈不适，Android姬怎么老是出问题呀(╯‵□′)╯︵┻━┻ 。 经过一番折腾，终于找见了解决卡顿的方法 方案：   尽量使用 transform 当成动画处理，避免">
+<meta property="og:image" content="http://zkres1.myzaker.com/201711/5a007bde7f52e974550000e2_640.jpg">
+<meta property="og:image" content="http://oodni3sgx.bkt.clouddn.com/Chrome%20DevTools%20-transform.png">
+<meta property="og:image" content="http://oodni3sgx.bkt.clouddn.com/c3-animate.png">
+<meta property="og:image" content="http://oodni3sgx.bkt.clouddn.com/c3-transform.png">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510229996717&di=96af5f9bb1156536daf8887d337ec958&imgtype=jpg&src=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D1547894033%2C2527407309%26fm%3D214%26gp%3D0.jpg">
+<meta property="og:updated_time" content="2017-11-09T09:37:08.777Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 姬与 CSS3 动画不得不说的故事">
+<meta name="twitter:description" content="最近公司做一个H5抽奖活动，要求将中奖名单（？？不存在的）显示在页面中，效果类似直播平台的弹幕一样飘过 。心想简单啊，直接定位用animate动画就解决了，然而…  测试的时候发现部分安卓机型出现卡卡卡卡顿的现象，实际动画效果引起强烈不适，Android姬怎么老是出问题呀(╯‵□′)╯︵┻━┻ 。 经过一番折腾，终于找见了解决卡顿的方法 方案：   尽量使用 transform 当成动画处理，避免">
+<meta name="twitter:image" content="http://zkres1.myzaker.com/201711/5a007bde7f52e974550000e2_640.jpg">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Wisper" rel="home">Wisper</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">Take dream do bet How can I lose</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/welcome">welcome</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories">categories</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about">about</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">archives</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/tags">tags</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-Android 姬与 CSS3 动画不得不说的故事" class="post-Android 姬与 CSS3 动画不得不说的故事 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Android 姬与 CSS3 动画不得不说的故事
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="//WispXy/2017/04/25/Android 姬与 CSS3 动画不得不说的故事/" data-id="cj9sa5jaj0000awqiqg2n8zxt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>最近公司做一个H5抽奖活动，要求将中奖名单（？？不存在的）显示在页面中，效果类似直播平台的弹幕一样飘过 。心想简单啊，直接定位用animate动画就解决了，然而…</p>
+<p><img src="http://zkres1.myzaker.com/201711/5a007bde7f52e974550000e2_640.jpg" alt="此处输入图片的描述"></p>
+<p>测试的时候发现部分安卓机型出现卡卡卡卡顿的现象，实际动画效果引起强烈不适，Android姬怎么老是出问题呀(╯‵□′)╯︵┻━┻ 。</p>
+<p>经过一番折腾，终于找见了解决卡顿的方法</p>
+<p>方案： </p>
+<ol>
+<li><p>尽量使用 transform 当成动画处理，避免使用 height,width,margin,padding 等；</p>
+</li>
+<li><p>要求较高时，可以开启浏览器开启GPU硬件加速<br> webkit-transform: translate3d( 0,0,0 );<br> -moz-transform: translate3d( 0,0,0 );<br> -ms-transform: translate3d( 0,0,0 );<br> -o-transform: translate3d( 0,0,0 );<br> transform: translate3d( 0,0,0 );</p>
+</li>
+</ol>
+<p>那到底是为什么Android姬会出现卡顿的现象呢？为什么亲儿子IOS没有受到遗传呢？这后面究竟是道德的伦桑还是人性的扭曲？欢迎收看《 走进科学 - Android 下的C3动画》。</p>
+<h2 id="令人吃鲸的真相"><a href="#令人吃鲸的真相" class="headerlink" title="令人吃鲸的真相"></a>令人吃鲸的真相</h2><p><strong>从浏览器的引擎工作原理方面</strong></p>
+<p><a href="http://blog.csdn.net/leer168/article/details/25917093" target="_blank" rel="external">深入浏览器理解 CSS animations 和 transitions 的性能问题</a> 一文中提到，现代的浏览器通常会有两个重要的执行线程，这2个线程协同工作来渲染一个网页：主线程和合成线程 。    </p>
+<p>一般情况下，主线程负责：</p>
+<ul>
+<li>运行 JavaScript</li>
+<li>计算 HTML 元素的 CSS 样式。</li>
+<li>页面的布局</li>
+<li>将元素绘制到一个或多个位图中</li>
+<li>将这些位图交给合成线程</li>
+</ul>
+<p>相应地，合成线程负责：</p>
+<ul>
+<li>通过 GPU 将位图绘制到屏幕上</li>
+<li>通知主线程更新页面中可见或即将变成可见的部分的位图</li>
+<li>计算出页面中哪部分是可见的</li>
+<li>计算出当你在滚动页面时哪部分是即将变成可见的</li>
+<li>当你滚动页面时将相应位置的元素移动到可视区域</li>
+</ul>
+<p>使用 height,width,margin,padding,top,left 占用主线程比较耗时。而使用 transform 浏览器只需要一次生成这个元素的位图，并在动画开始的时候将它提交给GPU去处理 。</p>
+<p><strong>通过DevTools从文档对象模型到像素级别的观察</strong></p>
+<p>下图是 Chrome 浏览器中动画的 timeline，瀑布流越高，浏览器为了计算每个像素，就做的越多。</p>
+<p><img src="http://oodni3sgx.bkt.clouddn.com/Chrome%20DevTools%20-transform.png" alt="timeline"></p>
+<p>由此也能验证以上得出的结论 。</p>
+<p>文章 <a href="https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/" target="_blank" rel="external">High Performance Animations</a> 提到：</p>
+<blockquote>
+<p>We’re going to cut straight to the chase. Modern browsers can animate four things really cheaply: position, scale, rotation and opacity. If you animate anything else, it’s at your own risk, and the chances are you’re not going to hit a silky smooth 60fps. </p>
+</blockquote>
+<p>现代浏览器在完成 position，scale，rotation，opacity 四种属性的动画时，消耗成本较低 。</p>
+<h2 id="捉急的项目证实"><a href="#捉急的项目证实" class="headerlink" title="捉急的项目证实"></a>捉急的项目证实</h2><p>为了验证以上的理论，我将两种写法做了比对 。</p>
+<p>下图是我之前的方法，使用定位改变 right 的值使元素从右到左移动，但是可以看到这种写法的 FPS 平均只有    30 。我们知道每秒 60 帧是最适合人眼交互的，FPS 小于 60 人眼能明显感觉的到，这就是为什么卡顿的原因 。</p>
+<p><img src="http://oodni3sgx.bkt.clouddn.com/c3-animate.png" alt="c3-animate"></p>
+<p>下图使用了 transform 方法改变 translateX 的值，FPS 明显高过 60 帧 ，惊不惊喜？ 意不意外？</p>
+<p><img src="http://oodni3sgx.bkt.clouddn.com/c3-transform.png" alt="c3-transform"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为了做到兼容性好，流畅度高的动画，一定要对自己的代码做好优化，尽可能将动画元素absolute化以避免影响文档树，造成大面积重新计算layout 。动画处理使用浏览器渲染快的 transform 属性，尽量避免改变 height,width,margin,padding 等，要求较高时还可以开启浏览器 GPU 硬件加速（ transform: translate3d( 0,0,0 ) ） 。</p>
+<p>PS：</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1510229996717&amp;di=96af5f9bb1156536daf8887d337ec958&amp;imgtype=jpg&amp;src=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D1547894033%2C2527407309%26fm%3D214%26gp%3D0.jpg" alt="暗中观察"></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/04/25/Android 姬与 CSS3 动画不得不说的故事/">
+    <time datetime="2017-04-25T03:24:03.000Z" class="entry-date">
+        2017-04-25
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作积累/">工作积累</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/04/19/一劳永逸的搞定-flex-布局（转）/" rel="prev"><span class="meta-nav">←</span> 一劳永逸的搞定 flex 布局（转）</a></span>
+    
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/25/Android 姬与 CSS3 动画不得不说的故事/">Android 姬与 CSS3 动画不得不说的故事</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/19/一劳永逸的搞定-flex-布局（转）/">一劳永逸的搞定 flex 布局（转）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/20/Vue-js-文档学习记录（三）-条件、列表和事件/">Vue-js-文档学习记录（三）- 条件、列表和事件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/17/Vue-js-文档学习记录（二）- 数据绑定/">Vue-js-文档学习记录（二）- 数据绑定</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/16/Vue-js-文档学习记录（一）- 安装和基础/">Vue.js 文档学习记录（一）- 安装和基础</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello/">Hello</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flex/">flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作积累/">工作积累</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hello/" style="font-size: 10px;">Hello</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Vue/" style="font-size: 20px;">Vue</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/工作积累/" style="font-size: 10px;">工作积累</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 Wisper
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+  
+	<div id="hexo-helper-live2d">
+      <canvas id="live2dcanvas" width="200" height="400" class="live2d"></canvas>
+	</div>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -20px;
+      }
+    </style>
+    <script src="/live2d/device.min.js"></script>
+    <script type="text/javascript">
+    (function(){
+    if(device.mobile()){
+      
+      document.getElementById("live2dcanvas").width = 75;
+      document.getElementById("live2dcanvas").height = 150;
+      document.write('<script type="text/javascript" src="/live2d/script.js"><\/script>');
+      document.write('<script>loadlive2d("live2dcanvas", "/live2d/assets/koharu.model.json", 0.5)<\/script>');
+      
+    }else{
+      document.write('<script type="text/javascript" src="/live2d/script.js"><\/script>');
+      document.write('<script>loadlive2d("live2dcanvas", "/live2d/assets/koharu.model.json", 0.5)<\/script>');
+    }
+    })();
+    </script>
+
+</body>
+</html>
