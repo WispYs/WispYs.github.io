@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://oodni3sgx.bkt.clouddn.com/c3-animate.png">
 <meta property="og:image" content="http://oodni3sgx.bkt.clouddn.com/c3-transform.png">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510229996717&di=96af5f9bb1156536daf8887d337ec958&imgtype=jpg&src=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D1547894033%2C2527407309%26fm%3D214%26gp%3D0.jpg">
-<meta property="og:updated_time" content="2017-11-09T09:46:41.270Z">
+<meta property="og:updated_time" content="2017-11-09T09:48:24.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 姬与 CSS3 动画不得不说的故事">
 <meta name="twitter:description" content="最近公司做一个H5抽奖活动，要求将中奖名单（？？不存在的）显示在页面中，效果类似直播平台的弹幕一样飘过 。心想简单啊，直接定位用animate动画就解决了，然而…">
@@ -95,7 +95,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/04/25/Android 姬与 CSS3 动画不得不说的故事/" data-id="cj9sahj1i0000y0qiddc194s9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/04/25/Android 姬与 CSS3 动画不得不说的故事/" data-id="cj9sajesq0001tcqi7hixc7x2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -105,7 +105,7 @@
 <p><img src="http://zkres1.myzaker.com/201711/5a007bde7f52e974550000e2_640.jpg" alt="此处输入图片的描述"></p>
  <a id="more"></a>
 <p>问题来了，问题来了，问题来了！在测试的时候，发现部分安卓机型出现卡卡卡卡顿的现象，实际动画效果引起强烈不适，有一种撸多了的感觉…Android 姬妮怎么老是出问题呀(╯‵□′)╯︵┻━┻ 。</p>
-<p>经过一番周折，两遁空门，叁叁来迟，似李狗贼终于找见了解决卡顿的方法</p>
+<p>经过一番周折，两遁空门，叁叁来迟，似李狗贼终于让我找见了解决卡顿的方法 。</p>
 <p>方案： </p>
 <ol>
 <li><p>尽量使用 transform 当成动画处理，避免使用 height,width,margin,padding 等；</p>
@@ -113,7 +113,7 @@
 <li><p>要求较高时，可以开启浏览器开启GPU硬件加速<br> webkit-transform: translate3d( 0,0,0 );<br> -moz-transform: translate3d( 0,0,0 );<br> -ms-transform: translate3d( 0,0,0 );<br> -o-transform: translate3d( 0,0,0 );<br> transform: translate3d( 0,0,0 );</p>
 </li>
 </ol>
-<p>那到底是为什么Android姬会出现卡顿的现象呢？为什么亲儿子IOS没有受到遗传呢？这后面究竟是道德的伦桑还是人性的扭曲？欢迎收看《 走进科学 - Android 下的C3动画》。</p>
+<p>那到底是为什么 Android 姬会出现卡顿的现象呢？为什么亲儿子 IOS 没有受到遗传呢？这后面究竟是道德的伦桑还是人性的扭曲？欢迎收看《 走进科学 - Android 下的C3动画》。</p>
 <h2 id="令人吃鲸的真相"><a href="#令人吃鲸的真相" class="headerlink" title="令人吃鲸的真相"></a>令人吃鲸的真相</h2><p><strong>从浏览器的引擎工作原理方面</strong></p>
 <p><a href="http://blog.csdn.net/leer168/article/details/25917093" target="_blank" rel="external">深入浏览器理解 CSS animations 和 transitions 的性能问题</a> 一文中提到，现代的浏览器通常会有两个重要的执行线程，这2个线程协同工作来渲染一个网页：主线程和合成线程 。    </p>
 <p>一般情况下，主线程负责：</p>
