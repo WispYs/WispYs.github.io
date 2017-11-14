@@ -89,7 +89,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/04/29/文本溢出显示省略号 ( - ... - )/" data-id="cj9z8znhx000twgqir42ums2s" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/04/29/文本溢出显示省略号 ( - ... - )/" data-id="cj9z94hdn000pw8qigx109via" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -99,35 +99,12 @@
 <p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1510231973506&amp;di=bf7185bdf513d71fa5bea07a9e602439&amp;imgtype=0&amp;src=http%3A%2F%2Fb.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3Df86faf0d74094b36dbc713e996fc50ef%2F63d0f703918fa0ecc13835df249759ee3c6ddb61.jpg" alt="..."></p>
 <p>省略号，在汉语中的基本形式是位于中线的六个小圆点（……），占两个字的位置；我国传统习惯在书面上用“上略”“下略”等表示省略，鲁迅1909年在《域外小说集·略例》中提出四种新式标点符号，其中“虚线”即省略号表示“语不尽”或“语中辍”，1930年《教育部划一教育机关公文格式办法》定名为“省略号”，沿用至今。16世纪英国的剧本出现省略号，表示话语被打断，或不完整。俄语语法著作1831年第一次提到省略号（…）大尉/船长。西方语文的省略号位于底线。英语句首或句中词语的省略用三个小圆点（…）表示 。</p>
 <p>欧克，打完收工！</p>
-<p><img src="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=6d394d5f74d98d1076810437110f9436/b3fb43166d224f4a6340a8b001f790529922d1bc.jpg" alt="nicoyang"></p>
-<p>开个玩笑，作为一只专业的前端程序猿怎么可能会如此敷衍行事 。OK，今天我们就来探讨一下文本溢出显示省略号的问题 。</p>
-<h2 id="文本溢出显示省略号"><a href="#文本溢出显示省略号" class="headerlink" title="文本溢出显示省略号"></a>文本溢出显示省略号</h2><p>单行自不多说</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">width: 200px;</div><div class="line">overflow: hidden;</div><div class="line">text-overflow: ellipsis;</div><div class="line">white-space: nowrap;</div></pre></td></tr></table></figure>
-<p>我们来重点探讨一下多行文本溢出省略</p>
-<p><strong>Round 1</strong></p>
-<p>对于 Webkit 内核浏览器可以使用 WebKit 的 CSS 扩展属性 <strong>-webkit-line-clamp</strong> 。<em>值得注意的是 -webkit-line-clamp 是一个 不规范的属性（unsupported WebKit property），它没有出现在 CSS 规范草案中。</em></p>
-<p>该属性可以限制在一个块元素显示的文本的行数。为了实现该效果，它需要组合其他外来的WebKit属性。</p>
-<p>常见结合属性：</p>
-<pre><code>1. display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。
-2. -webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。
-3. text-overflow，可以用来多行文本的情况下，用省略号“...”隐藏超出范围的文本 。
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//用法</div><div class="line">overflow : hidden;</div><div class="line">text-overflow: ellipsis;</div><div class="line">display: -webkit-box;	</div><div class="line">-webkit-line-clamp: 3;	//限制在一个块元素显示的文本行数最多2行</div><div class="line">-webkit-box-orient: vertical;</div></pre></td></tr></table></figure>
-<p>效果如下：</p>
-<p><img src="http://oodni3sgx.bkt.clouddn.com/clamp.png" alt="-webkit-line-clamp"></p>
-<p>但是，这毕竟是 Webkit 特有的属性，绕不开兼容性问题 。</p>
-<p>所以 -webkit-line-clamp ，OUT！</p>
-<p><strong>Round 2</strong></p>
-<p>既然考虑到兼容性的写法，那我们能不能用 <strong>伪类</strong> 定位的方法模拟省略号呢？</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">p::after&#123;</div><div class="line">    content: <span class="string">""</span>;</div><div class="line">    text-align: right;</div><div class="line">    position: absolute;</div><div class="line">    bottom: 0;</div><div class="line">    right: 0;</div><div class="line">    width: 50%;</div><div class="line">    height: 1.2em;</div><div class="line">    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);</div><div class="line">    background: -o-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);</div><div class="line">    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这里用到了背景颜色过渡在结尾处由透明到白色来遮盖原来的文字，效果如下：</p>
-<p><img src="http://oodni3sgx.bkt.clouddn.com/%E4%BC%AA%E7%B1%BB.png" alt="-webkit-line-clamp"></p>
-<p>可以看到实际效果还可以，但是考虑到背景如果是带颜色的或者是图片就不太好处理了 。</p>
-<p>SO 伪类，OUT！</p>
-<p><strong>Round 3</strong></p>
-<p>既然自己无法解决，那么看看别人是怎么处理的吧 。<a href="https://github.com/josephschmitt/Clamp.js" target="_blank" rel="external">Clamp.js</a> 是一个处理此问题的 JS 插件，在 GitHub 上有上千颗星，(¯﹃¯) Let’s Do It ! </p>
-<p>在一系列的完（chao）美（xi）操（wen）作（dang）后，终于实现了原先的需求 。其原理也十分简单易懂，先判断浏览器是否支持 webkitLineClamp 属性（ <code>typeof(element.style.webkitLineClamp)</code> ），支持就添加该属性用 css 控制，不支持就用递归的方式递减文本，然后判断其高度是否超过规定的最大高度 。但是值得注意的是，使用 Clamp.js 后不能定义该元素的 height，只能通过其原有方法（ <code>$clamp(myParagraph, {clamp: &#39;35px&#39;})</code> ）限制元素高度，不然会影响其内部的判断从而导致个别浏览器报错 。</p>
-<p>Mission Complete！</p>
-
+<p><img src="http://oodni3sgx.bkt.clouddn.com/nicoyang.jpg" alt="nicoyang"></p>
+        
+          <p class="article-more-link">
+            <a href="/2017/04/29/文本溢出显示省略号 ( - ... - )/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
       
     </div><!-- .entry-content -->
 
@@ -171,7 +148,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/04/25/Android 姬与 CSS3 动画不得不说的故事/" data-id="cj9z8zngx0000wgqik92949nw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/04/25/Android 姬与 CSS3 动画不得不说的故事/" data-id="cj9z94hd20008w8qiikb2mool" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -227,7 +204,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/04/19/一劳永逸的搞定-flex-布局（转）/" data-id="cj9z8znht000mwgqiv0i4jbss" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/04/19/一劳永逸的搞定-flex-布局（转）/" data-id="cj9z94hdj000lw8qikgdh8qfv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -282,7 +259,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/01/20/Vue-js-文档学习记录（三）-条件、列表和事件/" data-id="cj9z8znhj000dwgqiyaqgas93" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/01/20/Vue-js-文档学习记录（三）-条件、列表和事件/" data-id="cj9z94hdc000fw8qi1m9wi36c" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -338,7 +315,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/01/17/Vue-js-文档学习记录（二）- 数据绑定/" data-id="cj9z8znhr000jwgqi6cc8yosg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/01/17/Vue-js-文档学习记录（二）- 数据绑定/" data-id="cj9z94hdf000iw8qi0u945aro" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -395,7 +372,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/01/16/Vue-js-文档学习记录（一）- 安装和基础/" data-id="cj9z8znhf0009wgqijejcajwj" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/01/16/Vue-js-文档学习记录（一）- 安装和基础/" data-id="cj9z94hdb000dw8qi9ktltmuo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -456,7 +433,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2017/01/14/常用Git命令/" data-id="cj9z8znhv000qwgqilz39f86a" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2017/01/14/常用Git命令/" data-id="cj9z94hdo000sw8qiof8pjg1g" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -513,7 +490,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2016/12/25/ECMAScript-6-学习笔记（三）：字符串、正则和数值的扩展/" data-id="cj9z8znhc0008wgqicywr8x2e" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2016/12/25/ECMAScript-6-学习笔记（三）：字符串、正则和数值的扩展/" data-id="cj9z94hcz0006w8qi2uuxyywm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -572,7 +549,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2016/12/25/ECMAScript-6-学习笔记（二）：变量的解构赋值/" data-id="cj9z8znhm000fwgqixo54r6ix" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2016/12/25/ECMAScript-6-学习笔记（二）：变量的解构赋值/" data-id="cj9z94hd80009w8qip64q601d" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -631,7 +608,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2016/12/24/ECMAScript-6-学习笔记（一）：let-const-命令/" data-id="cj9z8znh20002wgqixsznghzm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2016/12/24/ECMAScript-6-学习笔记（一）：let-const-命令/" data-id="cj9z94hct0002w8qiwd8g6efu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
