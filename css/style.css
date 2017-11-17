@@ -838,6 +838,8 @@ footer[role="contentinfo"] a:hover {
 }
 .entry-header .entry-title a {
 	text-decoration: none;
+	font-family: Trebuchet MS,"STXingkai";
+	font-size:26px;
 }
 .entry-header .entry-format {
 	margin-top: 24px;
