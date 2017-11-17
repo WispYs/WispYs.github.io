@@ -1779,8 +1779,10 @@ img#wpstats {
 		display: none;
 	}
 	.entry-header .entry-title {
-		font-size: 22px;
+		font-size: 28px;
 		font-size: 1.571428571rem;
+		font-family: Trebuchet MS,"STXingkai";
+
 	}
 	#respond form input[type="text"] {
 		width: 46.333333333%;
