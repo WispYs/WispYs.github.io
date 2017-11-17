@@ -74,70 +74,6 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
-    <article id="post-Cmd Markdown 编辑阅读器" class="post-Cmd Markdown 编辑阅读器 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/12/14/Cmd Markdown 编辑阅读器/">Cmd Markdown 编辑阅读器</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="//WispXy/2016/12/14/Cmd Markdown 编辑阅读器/" data-id="cja3hg2v70002fkqikhnudll3" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，<strong>Cmd Markdown</strong> 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：</p>
-<blockquote>
-<ul>
-<li>整理知识，学习笔记</li>
-<li>发布日记，杂文，所见所想</li>
-<li>撰写发布技术文稿（代码支持）</li>
-<li>撰写发布学术论文（LaTeX 公式支持）</li>
-</ul>
-</blockquote>
-<p><img src="https://www.zybuluo.com/static/img/logo.png" alt="cmd-markdown-logo"></p>
-        
-          <p class="article-more-link">
-            <a href="/2016/12/14/Cmd Markdown 编辑阅读器/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/12/14/Cmd Markdown 编辑阅读器/">
-    <time datetime="2016-12-14T06:53:51.000Z" class="entry-date">
-        2016-12-14
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/工具/">工具</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
     <article id="post-解决移动端 1px 问题" class="post-解决移动端 1px 问题 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -153,7 +89,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="//WispXy/2016/11/23/解决移动端 1px 问题/" data-id="cja3hg2w5000ufkqiu0gtgj85" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="//WispXy/2016/11/23/解决移动端 1px 问题/" data-id="cja3hixe6000v4kqihs7kyqe8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -165,92 +101,11 @@
 <p><strong>设备独立像素 ：</strong> 设备独立像素也称为密度无关像素，可以认为是计算机坐标系统中的一个点，这个点代表一个可以由程序使用的虚拟像素(比如说CSS像素)，然后由相关系统转换为物理像素。</p>
 <p><strong>设备像素比 ：</strong>设备像素比简称为dpr，其定义了物理像素和设备独立像素的对应关系。它的值可以按下面的公式计算得到：<code>设备像素比 ＝ 物理像素 / 设备独立像素</code></p>
 <p>在 Retina 屏的手机上 dpr 为 2 或 3，css 里写的 1px 长度映射到物理像素上就有 2px 或 3px 那么长，所以显示出来会比较粗 。<br><img src="http://oodni3sgx.bkt.clouddn.com/retina-web-3.jpg" alt="1pxline"></p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p><strong>方法一 ：</strong> 用小数写px值</p>
-<p><strong>实现 ：</strong> </p>
-<pre><code>.border { border: 1px solid #999 }
-@media screen and (-webkit-min-device-pixel-ratio: 2) {
-       .border { border: 0.5px solid #999 }
-}
-@media screen and (-webkit-min-device-pixel-ratio: 3) {
-    .border { border: 0.333333px solid #999 }
-}
-</code></pre><p><strong>缺点 ：</strong> IOS8下已经支持带小数的 px 值，但是安卓与低版本 IOS 不适用，这个或许是未来的标准写法，现在不做指望 。</p>
-<p><strong>方法二 ：</strong> border-image</p>
-<p><strong>实现 ：</strong></p>
-<p>使用 border-image 解决 1px 需要一个特定的图片如下：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/831991-4a025d5c907d26f0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="border-img"></p>
-<pre><code>.border-bottom-1px {
-  border-width: 0 0 1px 0;
-  -webkit-border-image: url(linenew.png) 0 0 2 0 stretch;
-  border-image: url(linenew.png) 0 0 2 0 stretch;
-}
-</code></pre><p>上面的效果也仅实现了底部边框border-bottom的1px的效果。之所以使用的图片是2px的高，上部分的1px颜色为透明，下部分的1px使用的视觉规定的border颜色 。</p>
-<p><strong>缺点 ：</strong> 不管是只有一边的边框（比如示例中的底部边框），还是上下都有边框，我们都需要经常对图片做相应的处理，除些之外，如果边框的颜色做了变化，那么也需要对图片做处理。这样也不是一个很好的解决方案 。</p>
-<p><strong>方法三 ：</strong> background渐变</p>
-<p><strong>实现 ：</strong> 背景渐变, 渐变在透明色和边框色中间分割，frozenUI用的就是这种方法，借用它的上边框写法</p>
-<pre><code>@media screen and (-webkit-min-device-pixel-ratio: 2){
-    .ui-border-t {
-        background-position: left top;
-        background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.5,transparent),color-stop(0.5,#e0e0e0),to(#e0e0e0));
-    }
-}
-</code></pre><p><strong>缺点 ：</strong> 代码量大, 而且需要针对不同边框结构， frozenUI 就定义9种基本样式，而且这只是背景， 这样做出来的边框实际是在原本的border空间内部的，如果元素背景色有变化的样式， 边框线也会消失 ，最后不能适应圆角样式 。</p>
-<p><strong>方法四 ：</strong> 用 box-shadow 模拟边框的</p>
-<p><strong>实现 ：</strong>   </p>
-<pre><code>.hairlines li {
-    border: none;
-    box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.5);
-}
-</code></pre><p><strong>缺点 ：</strong>试了下不太好用，颜色不好处理，有阴影出现 。</p>
-<p><strong>方法五 ：</strong> viewport + rem 实现的（淘宝M站）（推荐）</p>
-<p><strong>实现 ：</strong><br>在devicePixelRatio = 2 时，输出viewport：</p>
-<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no&quot;&gt;
-</code></pre><p>在devicePixelRatio = 3 时，输出viewport</p>
-<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=0.3333333333333333, maximum-scale=0.3333333333333333, minimum-scale=0.3333333333333333, user-scalable=no&quot;&gt;
-</code></pre><p><strong>缺点 ：</strong> 个人感觉为了做个 border 多准备两套样式，还得动态改变 viewport ，有点费劲 。</p>
-<p><strong>方法六 ：</strong> 伪类 + transform（weui）（推荐）</p>
-<p><strong>实现 ：</strong> 原理是把原先元素的 border 去掉，然后利用 :before 或者 :after 重做 border ，并 transform 的 scale 缩小一半，原先的元素相对定位，新做的 border 绝对定位</p>
-<p>上边距：</p>
-<pre><code>.hairlines li{
-    position: relative;
-    line-height:30px;
-    border:none;
-}
-.hairlines li:after{
-    content: &apos; &apos;;
-    position: absolute;
-    left: 0;
-    background: #000;
-    width: 100%;
-    height: 1px;
-    -webkit-transform: scaleY(0.5);
-            transform: scaleY(0.5);
-    -webkit-transform-origin: 0 0;
-            transform-origin: 0 0;
-}
-</code></pre><p>四边距：</p>
-<pre><code>.hairlines li{
-    position: relative;
-    line-height:30px;
-    margin-bottom: 20px;
-    border:none;
-}
-.hairlines li:after{
-    content: &apos; &apos;;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 1px solid #000;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-transform-origin: left top;
-    transform-origin: left top;
-}
-</code></pre>
+        
+          <p class="article-more-link">
+            <a href="/2016/11/23/解决移动端 1px 问题/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
       
     </div><!-- .entry-content -->
 
@@ -269,6 +124,70 @@
     
   <span class="article-delim">&#8226;</span>
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作积累/">工作积累</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Cmd Markdown 编辑阅读器" class="post-Cmd Markdown 编辑阅读器 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/11/14/Cmd Markdown 编辑阅读器/">Cmd Markdown 编辑阅读器</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="//WispXy/2016/11/14/Cmd Markdown 编辑阅读器/" data-id="cja3hixcz00024kqi4kbsayjr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，<strong>Cmd Markdown</strong> 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：</p>
+<blockquote>
+<ul>
+<li>整理知识，学习笔记</li>
+<li>发布日记，杂文，所见所想</li>
+<li>撰写发布技术文稿（代码支持）</li>
+<li>撰写发布学术论文（LaTeX 公式支持）</li>
+</ul>
+</blockquote>
+<p><img src="https://www.zybuluo.com/static/img/logo.png" alt="cmd-markdown-logo"></p>
+        
+          <p class="article-more-link">
+            <a href="/2016/11/14/Cmd Markdown 编辑阅读器/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/11/14/Cmd Markdown 编辑阅读器/">
+    <time datetime="2016-11-14T06:53:51.000Z" class="entry-date">
+        2016-11-14
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/工具/">工具</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
 
     </footer>
 </article>
